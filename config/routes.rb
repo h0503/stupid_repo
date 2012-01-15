@@ -1,4 +1,16 @@
 StupidApp::Application.routes.draw do
+  get "test/ind"
+
+  get "test/p1"
+
+  get "test/p2"
+
+  get "test/p3"
+
+  get "test/p4"
+
+  get "test/res"
+
   get "pages/home"
 
   get "pages/contact"
