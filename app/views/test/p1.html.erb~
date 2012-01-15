@@ -8,4 +8,4 @@
 <input type="radio" name="group2" value="4">Просто умный!<br>
 
 <input type="radio" name="group2" value="5">Глупый :с<br>
- Go to <a href="./test/p2/">ДАЛЬШЕ</a>
+ Go to <a href="/tests/p2/">ДАЛЬШЕ</a>
