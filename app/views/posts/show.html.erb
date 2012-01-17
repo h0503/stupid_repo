@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => "post", :object => @post %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Destroy', @post, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Back', posts_path %>
+
+<p>
+  <b>Tags:</b>
+  <%= @post.tags.map { |t| t.name }.join(", ") %>
+</p>
+
+<h2>Comments</h2>
+<%= render @post.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>

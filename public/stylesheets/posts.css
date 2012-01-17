@@ -1,0 +1,120 @@
+/* *** css by miss monorom www.intensivstation.ch *** */
+/* css released under Creative Commons License -  http://creativecommons.org/licenses/by/2.0/deed.en  */
+
+body {
+background-color: #e1ddd9;
+font-size: 11px;
+font-family: Verdana, Arial, SunSans-Regular, Sans-Serif;
+color:#564b47;
+padding:0px;
+margin:0px;
+}
+a {color: #DB7093;}
+a:visited {color:#DB7093;}
+a:hover {color: #564b47;}
+a:active { color:#000000;}
+
+h1 {
+font-size: 11px;
+text-transform:uppercase;
+background-color: #E0A3B7;
+border-top:1px solid #564b47;
+border-bottom:1px solid #564b47;
+padding:5px 15px;
+margin:0px }
+
+h2 {
+font-size:20px;
+font-weight: normal;
+padding: 5px 10px;
+margin:0px;}
+
+img.download {vertical-align:middle;}
+
+/* ----------container to center the layout-------------- */
+#container {
+margin-bottom: 10px;
+background-color: #EBD3E0;
+}
+
+/* ----------banner for logo-------------- */
+#banner {
+background-color: #e1ddd9;
+text-align: right;
+padding: 0px;
+margin: 0px;
+}
+#banner img {padding:10px 0px;}
+
+/* -----------------content--------------------- */
+#content {
+background-color: #ffffff;
+padding: 0px;
+margin-left: 200px;
+margin-right: 0px;
+}
+div#content {
+min-height:600px;
+height:expression(this.scrollHeight > 600 ? "auto":"600px");
+}
+
+p, pre{
+padding: 5px 10px;
+margin:0px;
+}
+
+/* --------------left navi------------- */
+#left {
+float: left;
+width: 200px;
+margin: 0px;
+padding: 0px;
+}
+
+/* -----------footer--------------------------- */
+#footer {
+clear: both;
+margin: 0px;
+padding: 0px;
+text-align: right; }
+
+.post_entry
+{
+  padding-left:15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #564b47;
+}
+
+#css_dropdown_verticale, #css_dropdown_verticale ul, #css_dropdown_verticale li{
+padding:0;
+margin:0;
+}
+#css_dropdown_verticale li{
+list-style: none;
+position: relative;
+width:120px;
+height: 30px;
+padding:0 20px;
+background-color: #EBD3E0;
+line-height: 30px;
+cursor:pointer;
+}
+#css_dropdown_verticale li a{
+text-decoration:none;
+color: black;
+}
+#css_dropdown_verticale li:hover{
+background-color:#E0A3B7;
+}
+#css_dropdown_verticale ul ul{
+position: absolute;
+top:0;
+left:160px;
+background-color:#E0A3B7;
+border: 1px solid #564B47;
+visibility:hidden;
+}
+#css_dropdown_verticale ul li:hover ul{
+background-color:#564B47;
+visibility:visible;
+}

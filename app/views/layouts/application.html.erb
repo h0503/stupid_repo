@@ -1,11 +1,44 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Ruby on Rails Tutorial Sample App | <%= @title %></title>
-    <%= csrf_meta_tag %>
-  </head>
-  <body>
-    <%= yield %>
-  </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>POKE!</title>
+<%= csrf_meta_tag %>
+<%= stylesheet_link_tag "posts" %>
+<%= javascript_include_tag :all %>
+</head>
+<body>
+<div id="container">
+   <div id="banner" >пым пым пым<h1>header</h1>
+   </div>
+   <div id="left">
+       <h2>Менюшечка</h2>
+<div id="css_dropdown_verticale">
+   <ul>
+       <li><a href="#nogo">Блог</a></li>
+       <li><a href="#nogo">Творчество <div style="float: right">>></div></a>
+           <ul>
+           <li><a href="#nogo">Фанарт</a></li>
+           <li><a href="#nogo">Фанблаблабла</a></li>
+           </ul>
+       </li>
+       <li><a href="#nogo">Комиксы</a></li>
+       <li><a href="#nogo">Еще что-то <div style="float: right">>></div></a>
+           <ul>
+           <li><a href="#nogo">Еще1</a></li>
+           <li><a href="#nogo">Еще2</a></li>
+           <li><a href="#nogo">Еще3</a></li>
+           </ul>
+       </li>
+   </ul>
+</div>
+</ul>
+</div>
+<div id="content">
+<%= yield %>
+</div>   
+   </div>
+     <div id="footer"><h1>*^з^*</h1></div>
+</div>
+</body>
 </html>
 

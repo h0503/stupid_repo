@@ -1,4 +1,8 @@
 StupidApp::Application.routes.draw do
+  resources :posts do
+    resources :comments
+  end
+
   get "test/ind"
 
   get "test/p1"

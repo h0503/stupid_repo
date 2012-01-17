@@ -1,0 +1,10 @@
+<p>
+By <strong><%= comment.commenter %></strong> on <%= comment.created_at %>:<br />
+<%= comment.body %>
+ 
+<br />
+<%= link_to 'Destroy Comment', [comment.post, comment],
+             :confirm => 'Are you sure?',
+             :method => :delete %>
+
+</p>

@@ -1,0 +1,4 @@
+<h2><%= link_to_unless_current post.title, post %></h2>
+Posted at: <%= post.created_at %> by <strong><%= post.author %></strong><br />
+<%= post.body %>
+<hr />
