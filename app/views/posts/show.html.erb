@@ -2,15 +2,15 @@
 
 <div class="post_entry">
 <%= render :partial => "post", :object => @post %>
-<div class="tagline" style="float: left"><strong>Тэги: </strong><%= @post.tags.map { |t| t.name }.join(", ") %></div>
-<div class="actions" style="float: right"><%= link_to 'Редактировать', edit_post_path(@post) %> |
-<%= link_to 'Удалить', @post, :confirm => 'Тощна?', :method => :delete %> |
-<%= link_to 'Назад', posts_path %></div>
+<div class="tagline" style="float: left"><strong>РўСЌРіРё: </strong><%= @post.tags.map { |t| t.name }.join(", ") %></div>
+<div class="actions" style="float: right"><%= link_to 'Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ', edit_post_path(@post) %> |
+<%= link_to 'РЈРґР°Р»РёС‚СЊ', @post, :confirm => 'РўРѕС‰РЅР°?', :method => :delete %> |
+<%= link_to 'РќР°Р·Р°Рґ', posts_path %></div>
 <div style="clear:both;"></div> 
 </div>
 <br />
 <div id="comments">
-<h2>Комментарии</h2>
+<h2>РљРѕРјРјРµРЅС‚Р°СЂРёРё</h2>
 <%= render @post.comments %>
 </div>
 
