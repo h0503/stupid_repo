@@ -1,10 +1,6 @@
-<p>
-By <strong><%= comment.commenter %></strong> on <%= comment.created_at %>:<br />
-<%= comment.body %>
- 
-<br />
-<%= link_to 'Destroy Comment', [comment.post, comment],
-             :confirm => 'Are you sure?',
-             :method => :delete %>
-
-</p>
+<div class="commentbox">
+<%= comment.body %><br /><br />
+	<div class="comment_info" style="float: left">By <strong><%= comment.commenter %></strong> on <%= comment.created_at %></div>
+	<div class="actions" style="float: right"><%= link_to 'Destroy Comment', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete %></div>
+	<div style="clear:both;"></div> 
+</div>

@@ -1,0 +1,13 @@
+<div class="post_entry">
+<h2><%= link_to_unless_current @post.title, @post %></h2>
+<%= @post.body %>
+<br />
+<a href="/posts/<%= @post.id %>">Read more...</a>
+<div class="post_info"><strong>Posted at: </strong><%= @post.created_at %> by <%= @post.author %></div>
+<div class="tagline" style="float: left"><strong>Tags: </strong>aaaaa, bbbb, cccc</div>
+<div class="actions" style="float: right"><a href="test_form.html">Edit</a> | <a href="#">Destroy</a></div>
+<div style="clear:both;"></div> 
+</div>
+
+
+

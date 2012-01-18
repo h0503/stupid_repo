@@ -1,10 +1,11 @@
+<!DOCTYPE html>
+<html>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<link rel=StyleSheet type="text/css" href="stylesheets/posts.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <head>
 <title>POKE!</title>
-<%= csrf_meta_tag %>
-<%= stylesheet_link_tag "posts" %>
-<%= javascript_include_tag :all %>
 </head>
 <body>
 <div id="container">
@@ -16,8 +17,8 @@
    <ul>
        <li><a href="#nogo">Блог <div style="float: right">>></div></a>
            <ul>
-	   <li><a href="/posts">Постики</a></li>
-           <li><a href="/posts/new">Новый постик</a></li>
+	   <li><a href="test.html">Постики</a></li>
+           <li><a href="test_form.html">Новый постик</a></li>
            </ul>
        </li>
        <li><a href="#nogo">Творчество <div style="float: right">>></div></a>
@@ -39,10 +40,31 @@
 </ul>
 </div>
 <div id="content">
-<%= yield %>
-</div>   
+
+    <div id="error_explanation">
+      <h2>prohibited this post from being saved</h2>
+      <ul>
+        <li>err</li>
+	<li>err</li>
+	<li>err</li>
+      </ul>
+    </div>
+<form>
+  <div class="field">
+	<label for="author">Author</label><br /><input type="text" id="author" class="text_input">
+  </div>
+  <div class="field">
+	<label for="body">Body</label><br /><textarea rows="10" cols="45" id="body" class="text_input"></textarea>
+  </div>
+  <div class="tagline"><strong>Tags: </strong>aaaaa, bbbb, cccc</div>
+
+  <div class="actions">
+    <input type="submit" class="btn" value="Send">
+  </div>
+</form>
    </div>
      <div id="footer"><h1>*^з^*</h1></div>
+</div>   
 </div>
 </body>
 </html>
