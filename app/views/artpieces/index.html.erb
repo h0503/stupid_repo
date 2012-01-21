@@ -1,0 +1,21 @@
+<h1>Listing artpieces</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @artpieces.each do |artpiece| %>
+  <tr>
+    <td><%= link_to 'Show', artpiece %></td>
+    <td><%= link_to 'Edit', edit_artpiece_path(artpiece) %></td>
+    <td><%= link_to 'Destroy', artpiece, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Artpiece', new_artpiece_path %>

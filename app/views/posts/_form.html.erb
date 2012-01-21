@@ -1,5 +1,5 @@
 <% @post.tags.build %>
-<%= form_for(@post) do |f| %>
+<%= form_for(@post, :html => {:multipart => true} ) do |f| %>
 <%= javascript_include_tag :all %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -30,4 +30,16 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  <% f.fields_for :post_images do |builder| %>
+    <% if builder.object.new_record? %>
+      <p>
+      <%= builder.label :name, "Image Caption" %>
+      <%= builder.text_field :name %>
+      </p>
+      <p>
+      <%= builder.label :photo, "Image File" %>
+      <%= builder.file_field :photo %>
+      </p> 
+    <% end %>
+  <% end %>
 <% end %>

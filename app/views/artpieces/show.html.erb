@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+<h2><%= @artpiece.name %> (<%= @artpiece.year %>)</h2>
+<% @files.each do |file| %>
+    <p>
+    <% file["public/images/"] = ""  %>
+    <%= image_tag(file) %>
+    </p>
+<% end %>
+<p>
+  <%= @artpiece.desc %>
+</p>    
+<br />                                             
+<%= link_to 'Edit', edit_artpiece_path(@artpiece) %> |
+<%= link_to 'Back', artists_path %>

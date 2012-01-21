@@ -13,5 +13,5 @@
 <h2>Комментарии</h2>
 <%= render @post.comments %>
 </div>
-
+<%= @post.post_images.map { |t| t.name }.join(", ") %>
 <%= render "comments/form" %>

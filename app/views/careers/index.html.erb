@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @career.each do |career| %>
+  <tr>
+    <td><%= career.name %></td>
+    <td><%= link_to 'Show', career %></td>
+    <td><%= link_to 'Edit', edit_career_path(career) %></td>
+    <td><%= link_to 'Destroy', career, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Artist', new_career_path %>

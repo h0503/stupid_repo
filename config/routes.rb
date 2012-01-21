@@ -1,4 +1,13 @@
 StupidApp::Application.routes.draw do
+    
+  resources :artpieces
+
+  resources :artists
+
+  resources :careers do
+     resources :artists
+  end
+
   resources :posts do
     resources :comments
   end

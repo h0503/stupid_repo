@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @artist.name %> (<%= @artist.born %>)</h1>
+<ol>
+    <% @artpieces.each do |piece| %>
+        <li><%= link_to piece.name+' ('+piece.year.to_s+')', :controller => 'artpieces', :action => 'show', :id => piece.id %></li>
+    <% end %>
+</ol>
+
+
+<%= form_tag({:controller => 'artpieces', :action => :create}, :multipart => true) do %>
+    Name: <%= text_field :artpiece, :name, :size => 10 %> <br />
+    Year: <%= text_field :artpiece, :year, :size => 1 %>  <br />
+    Desc: <%= text_field :artpiece, :desc, :size => 50 %> <br />
+    Imag: <%= hidden_field(:artpiece, :artist_id, :value => @artist.id ) %>
+    <%= file_field_tag 'picture' %>
+    <br />
+    <%= submit_tag 'Add new piece' %>
+<% end %>
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>

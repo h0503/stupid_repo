@@ -1,0 +1,25 @@
+<h2>Available artists</h2>
+<ul>
+<% @artists.each do |artist| %>
+    <li><%= link_to artist.name, :controller => 'careers', :action => 'show', :id => artist.career.id %></li>
+    <li><%= link_to artist.name, :action => 'show', :id => artist.id %></li>
+<% end %>
+</ul>
+
+<% form_tag :action => :create do %>
+    Name: <%= text_field :artist, :name, :size => 10 %>
+    Born: <%= text_field :artist, :born, :size => 1 %>
+    <br />
+    <% @careers.each do |cat| %>
+        <%= radio_button :artist, :career_id, cat.id %><%= cat.name %>
+    <% end %>
+    <%= submit_tag 'Add new artist' %>
+<% end %>
+
+<ul>
+<% @files.each do |artist| %>
+    <% artist["public"] = "" %>
+    <li><%= image_tag(artist) %></li>
+<% end %>
+</ul>
+ssss

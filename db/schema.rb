@@ -10,11 +10,42 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117213605) do
+ActiveRecord::Schema.define(:version => 20120121011456) do
+
+  create_table "artists", :force => true do |t|
+    t.string   "name"
+    t.integer  "career_id",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "born"
+    t.text     "desc"
+  end
+
+  create_table "artpieces", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.integer  "year"
+    t.text     "desc"
+    t.integer  "artist_id"
+  end
+
+  create_table "careers", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", :force => true do |t|
     t.string   "commenter"
     t.text     "body"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "post_images", :force => true do |t|
+    t.string   "name"
     t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
