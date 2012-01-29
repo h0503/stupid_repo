@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   # GET /posts/1.xml
   def show
     @post = Post.find(params[:id])
-    @images = PostImage.all(:conditions => {:entity_id => @post.id, :ptype => @post.ptype})
+    @images = PostImage.all(:conditions => {:entity_id => @post.id.to_s, :ptype => @post.ptype.to_s})
     @comment = Comment.new
     @ptype = @post.ptype
 
