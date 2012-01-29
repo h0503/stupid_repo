@@ -6,3 +6,8 @@
 
 <div><%= @post.body %></div>
 <% end %> 
+<br />
+<div class="tagline" style="float:left"><strong>Posted at: </strong><%= post.created_at %> by <%= post.author %></div>
+<div class="actions" style="float: right"><%= link_to 'Редактировать', edit_post_path(post) %> |
+<%= link_to 'Удалить', post, :confirm => 'Тощна?', :method => :delete %></div>
+<div style="clear:both;"></div> 

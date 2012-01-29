@@ -5,13 +5,6 @@
 <% else %>
 <%= render :partial => "post", :object => @post %>
 <% end %>
-
-<div class="post_info"><strong>Posted at: </strong><%= @post.created_at %> by <%= @post.author %></div>
-<div class="tagline" style="float: left"><strong>Тэги: </strong><%= @post.tags.map { |t| t.name }.join(", ") %></div>
-<div class="actions" style="float: right"><%= link_to 'Редактировать', edit_post_path(@post) %> |
-<%= link_to 'Удалить', @post, :confirm => 'Тощна?', :method => :delete %> |
-<%= link_to 'Назад', posts_path %></div>
-<div style="clear:both;"></div> 
 </div>
 
  
