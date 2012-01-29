@@ -1,13 +1,13 @@
 <%= form_for([@post, @post.comments.build]) do |f| %>
   <div class="field">
-    <%= f.label :commenter %><br />
-    <%= f.text_field :commenter %>
+    <%= f.label "Автор" %><br />
+    <%= f.text_field :commenter, :class => "text_input" %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.label "Текст" %><br />
+    <%= f.text_area :body, :class => "text_input", :rows => 5 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Отправить', :class => "btn" %>
   </div>
 <% end %>

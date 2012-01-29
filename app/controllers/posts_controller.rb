@@ -2,8 +2,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
-
+    if params[:v] == Ptypes.find_by_name("comix").id.to_s
+      @posts = Post.all(:conditions => {:ptype => params[:v].to_s})
+    else
+      @posts = Post.where("ptype NOT IN (2)")
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
@@ -14,7 +18,9 @@ class PostsController < ApplicationController
   # GET /posts/1.xml
   def show
     @post = Post.find(params[:id])
+    @images = PostImage.all(:conditions => {:entity_id => @post.id, :ptype => @post.ptype})
     @comment = Comment.new
+    @ptype = @post.ptype
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,8 +31,13 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.xml
   def new
+    if params[:v] == Ptypes.find_by_name("comix").id.to_s
+      @ptype = Ptypes.find_by_name("comix").id
+    else
+      @ptype = Ptypes.find_by_name("post").id
+    end
+    
     @post = Post.new
-    3.times {@post.post_images.build}
     
     respond_to do |format|
       format.html # new.html.erb
@@ -43,10 +54,14 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
-    @post = Post.new(params[:post])
+    @post = Post.create(params[:post])
 
     respond_to do |format|
       if @post.save
+        @image = PostImage.create(:photo => params[:post_image][:photo])
+        @image[:ptype]     = @post.ptype.to_int
+        @image[:entity_id] = @post.id
+        @image.save
         format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else

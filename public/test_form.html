@@ -69,3 +69,15 @@
 </body>
 </html>
 
+             <% f.fields_for :post_images do |builder| %>
+    <% if builder.object.new_record? %>
+      <p>
+      <%= builder.label :name, "Image Caption" %>
+      <%= builder.text_field :name %>
+      </p>
+      <p>
+      <%= builder.label :photo, "Image File" %>
+      <%= builder.file_field :photo %>
+      </p> 
+    <% end %>
+  <% end %>

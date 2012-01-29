@@ -1,5 +1,5 @@
 <% @post.tags.build %>
-<%= form_for(@post, :html => {:multipart => true} ) do |f| %>
+<% form_tag({:controller => 'posts', :action => :create}, :multipart => true) do %>
 <%= javascript_include_tag :all %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -13,33 +13,22 @@
     </div>
   <% end %>
     <div class="field">
-    <%= f.label :author %><br />
-    <%= f.text_field :author %>
+    Автор<br />
+    <%= text_field :post, :author, :class => "text_input" %>
   </div>
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    Заголовок<br />
+    <%= text_field :post, :title, :class => "text_input"  %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    Текст<br />
+    <%= text_area :post, :body, :class => "text_input" %>
   </div>
-  <h2>Тэги</h2>
-  <%= render :partial => 'tags/form',
-             :locals => {:form => f} %>
+  Файл:<br />
+    <%= file_field :post_image, :photo %>
+    <br />
+  <%= hidden_field(:post, :ptype, :value => @ptype ) %>
   <div class="actions">
-    <%= f.submit %>
+    <%= submit_tag 'Отправить', :class => "btn" %>
   </div>
-  <% f.fields_for :post_images do |builder| %>
-    <% if builder.object.new_record? %>
-      <p>
-      <%= builder.label :name, "Image Caption" %>
-      <%= builder.text_field :name %>
-      </p>
-      <p>
-      <%= builder.label :photo, "Image File" %>
-      <%= builder.file_field :photo %>
-      </p> 
-    <% end %>
-  <% end %>
 <% end %>

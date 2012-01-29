@@ -1,17 +1,16 @@
 <p id="notice"><%= notice %></p>
-
 <div class="post_entry">
+<% if "2" == @ptype.to_s %>
+<%= render :partial => "comix", :object => @post %>
+<% else %>
 <%= render :partial => "post", :object => @post %>
-<div class="tagline" style="float: left"><strong>Тэги: </strong><%= @post.tags.map { |t| t.name }.join(", ") %></div>
-<div class="actions" style="float: right"><%= link_to 'Редактировать', edit_post_path(@post) %> |
-<%= link_to 'Удалить', @post, :confirm => 'Тощна?', :method => :delete %> |
-<%= link_to 'Назад', posts_path %></div>
-<div style="clear:both;"></div> 
+<% end %>
 </div>
-<br />
+
+ 
 <div id="comments">
 <h2>Комментарии</h2>
 <%= render @post.comments %>
 </div>
-<%= @post.post_images.map { |t| t.name }.join(", ") %>
+<h3></h3>
 <%= render "comments/form" %>

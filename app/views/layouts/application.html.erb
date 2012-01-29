@@ -14,11 +14,17 @@
        <h2>Менюшечка</h2>
 <div id="css_dropdown_verticale">
    <ul>
-       <li><a href="#nogo">Блог <div style="float: right">>></div></a>
+       <li>Блог <div style="float: right">>></div>
            <ul>
-	   <li><a href="/posts">Постики</a></li>
-           <li><a href="/posts/new">Новый постик</a></li>
+	     <li><%= link_to "Читать", posts_path %></li>
+           <li><%= link_to "Добавить", new_post_path %></li>
            </ul>
+       </li>
+       <li>Комиксы <div style="float: right">>></div>
+       <ul>
+           <li><%= link_to "Читать", posts_path(:v => 2) %></li>
+           <li><%= link_to "Добавить", new_post_path(:v => 2) %></li>
+       </ul>
        </li>
        <li><a href="#nogo">Творчество <div style="float: right">>></div></a>
            <ul>
@@ -26,7 +32,7 @@
            <li><a href="#nogo">Фанблаблабла</a></li>
            </ul>
        </li>
-       <li><a href="#nogo">Комиксы</a></li>
+       <li><a href="/artists">Люди</a></li>
        <li><a href="#nogo">Еще что-то <div style="float: right">>></div></a>
            <ul>
            <li><a href="#nogo">Еще1</a></li>

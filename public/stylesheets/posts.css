@@ -40,7 +40,7 @@ img.download {vertical-align:middle;}
 
 /* ----------container to center the layout-------------- */
 #container {
-margin-bottom: 10px;
+/*margin-bottom: 10px;*/
 background-color: #EBD3E0;
 }
 
@@ -89,6 +89,14 @@ text-align: right; }
 {
   padding-bottom: 5px;
   border-bottom: 1px solid #564b47;
+  min-height: 150px;
+}
+
+.post_footer
+{
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
 }
 
 .post_entry h2

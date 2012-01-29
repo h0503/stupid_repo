@@ -1,25 +1,26 @@
-<h2>Available artists</h2>
+<h2>Люди</h2>
 <ul>
 <% @artists.each do |artist| %>
-    <li><%= link_to artist.name, :controller => 'careers', :action => 'show', :id => artist.career.id %></li>
     <li><%= link_to artist.name, :action => 'show', :id => artist.id %></li>
 <% end %>
 </ul>
 
-<% form_tag :action => :create do %>
-    Name: <%= text_field :artist, :name, :size => 10 %>
-    Born: <%= text_field :artist, :born, :size => 1 %>
-    <br />
+<%= form_tag({:controller => 'artists', :action => :create}, :multipart => true) do %>
+    Фамилия:<br /><%= text_field :artist, :name, :size => 10, :class => "text_input" %><br />
+    Год рождения:<br /><%= text_field :artist, :born, :size => 4, :class => "text_input" %><br />
+    Профессия:<br />
     <% @careers.each do |cat| %>
         <%= radio_button :artist, :career_id, cat.id %><%= cat.name %>
-    <% end %>
-    <%= submit_tag 'Add new artist' %>
+    <% end %> 
+    <br />
+    Описание:<br /><%= text_field :artpiece2, :desc, :size => 50, :class => "text_input" %> <br />
+    Файл:<br />
+    <%= file_field_tag 'picture' %>
+    <br />
+    <%= submit_tag 'Добавить', :class => "btn" %>
 <% end %>
 
-<ul>
-<% @files.each do |artist| %>
-    <% artist["public"] = "" %>
-    <li><%= image_tag(artist) %></li>
+<h5>По профессиям</h5>
+<% @careers.each do |career| %>
+    <%= link_to career.name, :controller => 'careers', :action => 'show', :id => career.id %> 
 <% end %>
-</ul>
-ssss

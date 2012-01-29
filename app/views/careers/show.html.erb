@@ -1,12 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Available <%= @career.name %></h1>
+<h2>Все авторы в категории <%= @career.name%></h2>
 <ol>
 <% @career.artists.each do |artist| %>
     <li><%= link_to artist.name, :controller => 'artists', :action => 'show', :id => artist.id %></li>
 <% end %>
 </ol>
 
-
-<%= link_to 'Edit', edit_career_path(@career) %> |
 <%= link_to 'Back', artists_path %>

@@ -16,7 +16,9 @@ class ArtistsController < ApplicationController
   # GET /artists/1.xml
   def show
     @artist = Artist.find(params[:id])
+    @careers = Career.all
     @artpieces = @artist.artpieces
+    @files = Dir.glob("public/images/artcat/artists/#{sprintf("%03d", @artist.id)}*")  
     
     respond_to do |format|
       format.html # show.html.erb
@@ -44,18 +46,17 @@ class ArtistsController < ApplicationController
   # POST /artists.xml
   def create
     @artist = Artist.new(params[:artist])
-
     @career = Career.find(params[:artist][:career_id])
     @career.artists << @artist
 
-    respond_to do |format|
-      if @artist.save
-        format.html { redirect_to(@artist, :notice => 'Artist was successfully created.') }
-        format.xml  { render :xml => @artist, :status => :created, :location => @artist }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @artist.errors, :status => :unprocessable_entity }
-      end
+    if @artist.save
+    @image_name = "#{sprintf("%03d", @artist.id)}.jpg"
+    @directory = "public/images/artcat/artists"
+    # create the file path
+    @path = File.join(@directory, @image_name)
+    # write the file
+    File.open(@path, "wb") { |f| f.write(params[:picture].read) }
+    redirect_to(@artist, :notice => 'Artpiece was successfully created.')
     end
   end
 

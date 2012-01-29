@@ -1,21 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<h1><%= @artist.name %> (<%= @artist.born %>)</h1>
-<ol>
+<h2><%= @artist.name %> (<%= @artist.born %>)</h2>
+<% @files.each do |artist| %>
+    <% artist["public"] = "" %>
+    <p><%= image_tag(artist) %></p>
+<% end %>
+<h3>Работы</h3>
+<ul>
     <% @artpieces.each do |piece| %>
         <li><%= link_to piece.name+' ('+piece.year.to_s+')', :controller => 'artpieces', :action => 'show', :id => piece.id %></li>
     <% end %>
-</ol>
-
+</ul>
 
 <%= form_tag({:controller => 'artpieces', :action => :create}, :multipart => true) do %>
-    Name: <%= text_field :artpiece, :name, :size => 10 %> <br />
-    Year: <%= text_field :artpiece, :year, :size => 1 %>  <br />
-    Desc: <%= text_field :artpiece, :desc, :size => 50 %> <br />
-    Imag: <%= hidden_field(:artpiece, :artist_id, :value => @artist.id ) %>
+    Название:<br /><%= text_field :artpiece, :name, :size => 10, :class => "text_input" %> <br />
+    Год:<br /><%= text_field :artpiece, :year, :size => 4, :class => "text_input" %>  <br />
+    Описание:<br /><%= text_field :artpiece, :desc, :size => 50, :class => "text_input" %> <br />
+    Файл:<br />
     <%= file_field_tag 'picture' %>
     <br />
-    <%= submit_tag 'Add new piece' %>
+    <%= hidden_field(:artpiece, :artist_id, :value => @artist.id ) %>
+    <%= submit_tag 'Добавить работу', :class => "btn" %>
 <% end %>
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
-<%= link_to 'Back', artists_path %>
+<p id="notice"><%= notice %></p>
+<%= link_to 'Удалить', @artist, :confirm => 'Тощна?', :method => :delete %> |  
+<%= link_to 'Редактировать', edit_artist_path(@artist) %> |
+<%= link_to 'Назад', artists_path %>

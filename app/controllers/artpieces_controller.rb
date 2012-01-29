@@ -14,8 +14,8 @@ class ArtpiecesController < ApplicationController
   # GET /artpieces/1.xml
   def show
     @artpiece = Artpiece.find(params[:id])
-    @author = Artist.find(@artpiece[:artist_id])
-    @files = Dir.glob("public/images/artcat/p_00#{@author.id}_00#{@artpiece.id}*")
+    @artist = Artist.find(@artpiece[:artist_id])
+    @files = Dir.glob("public/images/artcat/pieces/#{sprintf("%03d", @artpiece.id)}*")
     
     respond_to do |format|
       format.html # show.html.erb
@@ -47,8 +47,8 @@ class ArtpiecesController < ApplicationController
     @artist.artpieces << @artpiece
 
     if @artpiece.save
-      @image_name = "art_#{@artpiece.id}_#{@artpiece.artist_id}"
-      @directory = "public/data"
+      @image_name = "#{sprintf("%03d", @artpiece.id)}.jpg"
+      @directory = "public/images/artcat/pieces"
       # create the file path
       @path = File.join(@directory, @image_name)
       # write the file
@@ -77,11 +77,9 @@ class ArtpiecesController < ApplicationController
   # DELETE /artpieces/1.xml
   def destroy
     @artpiece = Artpiece.find(params[:id])
+    @artist = @artpiece[:artist_id]
     @artpiece.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(artists_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to :controller => "artists", :action => "show", :id => @artist
   end
 end
