@@ -1,6 +1,6 @@
 <h2><%= link_to_unless_current post.title, post %></h2>
 <div><%= post.body %></div>
-
+<br />
 <% if !defined?(@images).nil? %>
   <% @images.each do |piece| %>
     <a href="<%= piece.photo(:large) %>" target ='blank'><%= image_tag piece.photo(:thumb) %></a>
